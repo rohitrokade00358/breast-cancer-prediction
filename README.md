@@ -126,6 +126,3 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ---
 
-## 🤝 Contributions
-
-Contributions, suggestions, and improvements are welcome! Please fork the repo and submit a pull request.
