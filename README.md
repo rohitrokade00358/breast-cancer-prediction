@@ -39,6 +39,7 @@ The machine learning model is trained using a Jupyter Notebook and the best-perf
 ---
 
 ## 🗂️ Project Structure
+---
 
 ```
 breast_cancer_predictor/
