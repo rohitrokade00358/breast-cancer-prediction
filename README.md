@@ -2,6 +2,9 @@
 
 This web-based application predicts whether a tumor is **malignant** or **benign** using 30 medical features. It integrates **Django** for the web interface and **machine learning** models trained in a Jupyter Notebook. The top-performing model, **Random Forest**, reached **97.36%** accuracy and is deployed in the system.
 
+This project uses **Django** for web development, **Python** for the backend logic, and **Machine Learning** to predict breast cancer tumor classification.
+
+The machine learning model is trained using a Jupyter Notebook and the best-performing model, Random Forest, is used for prediction.
 ---
 
 ## 🚀 Features
