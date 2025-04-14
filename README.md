@@ -114,7 +114,7 @@ These features come from the Breast Cancer Wisconsin dataset.
 
 - Add user authentication
 - Improve UI/UX design
-- Deploy on cloud platforms (e.g., Heroku, Vercel)
+- Deploy on cloud platforms 
 - Add a model comparison dashboard
 - Containerize the project using Docker
 
