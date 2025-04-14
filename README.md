@@ -42,19 +42,21 @@ The machine learning model is trained using a Jupyter Notebook and the best-perf
 
 ```
 breast_cancer_predictor/
-├── predictor/
-│   ├── templates/predictor/
-│   │   ├── form.html          # User input form for medical features
-│   │   └── result.html        # Prediction results display
-│   │   └── base.html          # Common template structure
-│   ├── views.py               # Core logic: load model, make predictions
-│   └── __init__.py, admin.py, apps.py, models.py, urls.py, etc.
+├── predictor/                  # Django app folder
+│   ├── templates/predictor/    # HTML templates for the web app
+│   │   ├── form.html           # Input form
+│   │   └── result.html         # Display result
+│   ├── views.py                # Django views (Python code)
+│   ├── models.py               # Django models (Python code)
+│   ├── urls.py                 # URL routing (Python code)
+│   └── static/                 # Static files (CSS, JS, etc.)
 │
-├── model.pkl                  # Trained Random Forest model (serialized with joblib)
-├── data.csv                   # Breast Cancer Wisconsin Dataset
-├── breast_cancer_prediction.ipynb  # Jupyter Notebook: training and evaluation
-├── manage.py
-└── requirements.txt
+├── model.pkl                   # Serialized machine learning model (from joblib)
+├── breast_cancer_prediction.ipynb  # Jupyter notebook (model training)
+├── manage.py                   # Django manage script (Python code)
+├── requirements.txt            # Python dependencies
+├── .gitignore                  # Ignore unnecessary files
+└── README.md                   # Project description
 ```
 
 ---
