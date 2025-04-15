@@ -36,7 +36,6 @@ This web-based application predicts whether a tumor is **malignant** or **benign
 ---
 
 ## 🗂️ Project Structure
----
 
 ```
 breast_cancer_predictor/
@@ -56,14 +55,11 @@ breast_cancer_predictor/
 ├── .gitignore                  # Ignore unnecessary files
 └── README.md                   # Project description
 ```
-
----
-
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the Repository
 
-```bash
+```
 git clone https://github.com/your-username/breast_cancer_predictor.git
 cd breast_cancer_predictor
 ```
@@ -94,7 +90,7 @@ joblib.dump(model, 'model.pkl')
 
 ### 5. Run Django Server
 
-```bash
+```
 python manage.py runserver
 ```
 
