@@ -1,9 +1,12 @@
 # predictor/views.py
 from django.shortcuts import render
+import os
 import joblib
 
-# Load the model
-model = joblib.load('C:/udemy_course/udemy_projects/breast_cancer_predictor/model.pkl')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+model_path = os.path.join(BASE_DIR, 'model.pkl')
+model = joblib.load(model_path)
+
 
 feature_names = [
     "mean_radius", "mean_texture", "mean_perimeter", "mean_area", "mean_smoothness",
