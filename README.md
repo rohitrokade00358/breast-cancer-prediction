@@ -2,6 +2,8 @@
 
 This web-based application predicts whether a tumor is **malignant** or **benign** using 30 medical features. It integrates **Django** for the web interface and **machine learning** models trained in a Jupyter Notebook. The top-performing model, **Random Forest**, reached **97.36%** accuracy and is deployed in the system.
 
+🌐 **Live Demo**: [https://breast-cancer-prediction-kxqc.onrender.com](https://breast-cancer-prediction-kxqc.onrender.com)
+
 ---
 
 ## 🚀 Features
@@ -37,7 +39,7 @@ This web-based application predicts whether a tumor is **malignant** or **benign
 
 ## 🗂️ Project Structure
 
-```
+```bash
 breast_cancer_predictor/
 ├── predictor/                  # Django app folder
 │   ├── templates/predictor/    # HTML templates for the web app
@@ -55,46 +57,96 @@ breast_cancer_predictor/
 ├── .gitignore                  # Ignore unnecessary files
 └── README.md                   # Project description
 ```
+
+---
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the Repository
 
-```
-git clone https://github.com/your-username/breast_cancer_predictor.git
+```bash
+git clone https://github.com/rohitrokade00358/breast-cancer-prediction.git
 cd breast_cancer_predictor
 ```
 
-### 2. Create and Activate Virtual Environment
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Train Model (Optional)
+### 3. Train Model (Optional)
 
 - Open `breast_cancer_prediction.ipynb`
 - Run all cells to retrain models
-- Save best model using:
+- Save the best model using:
 
 ```python
 import joblib
 joblib.dump(model, 'model.pkl')
 ```
 
-### 5. Run Django Server
+### 4. Run Django Server (Locally)
 
-```
+```bash
 python manage.py runserver
 ```
 
 Go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to use the application.
+
+---
+
+## ☁️ Deployment on Render
+
+### 1. Add a `Procfile`
+
+In the root directory of your project, create a file named `Procfile` with the following content:
+
+```
+web: gunicorn breast_cancer_predictor.wsgi:application
+```
+
+This tells Render to use Gunicorn as the WSGI server to run your Django application.
+
+### 2. Create a `build.sh` Script
+
+Also, in the root directory, create a file named `build.sh` with the following content:
+
+```bash
+#!/usr/bin/env bash
+# exit on error
+set -o errexit
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Collect static files
+python manage.py collectstatic --no-input
+
+# Apply database migrations
+python manage.py migrate
+
+# Create a superuser (optional)
+# python manage.py createsuperuser --no-input
+```
+
+Make sure to give execute permissions to this script:
+
+```bash
+chmod +x build.sh
+```
+
+This script ensures that every time you deploy, Render will install your dependencies, collect static files, and apply any database migrations.
+
+### 3. Deploy on Render
+
+Once you've added these files:
+
+1. Push your changes to your GitHub repository.
+2. In the Render dashboard, create a new web service and link it to your repository.
+3. Set the **Build Command** to `./build.sh`.
+4. Set the **Start Command** to `gunicorn breast_cancer_predictor.wsgi:application`.
+
+Render will automatically detect these configurations and deploy our application accordingly.
 
 ---
 
@@ -122,6 +174,15 @@ These features come from the Breast Cancer Wisconsin dataset.
 ## 📜 License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) — free to use, modify, and distribute with attribution.
+
+---
+
+
+## 🙌 Acknowledgments
+
+- Scikit-learn team for machine learning utilities
+- Django community for the robust web framework
+- UCI for the Breast Cancer dataset
 
 ---
 
